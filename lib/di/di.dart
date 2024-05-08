@@ -34,8 +34,7 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<SaveArticleUseCase>(SaveArticleUseCase(sl()));
 
   //Blocs
-  sl.registerFactory<RemoteArticlesBloc>(
-          () => RemoteArticlesBloc(sl()));
+  sl.registerFactory<RemoteArticlesBloc>(() => RemoteArticlesBloc(sl()));
 
   sl.registerFactory<LocalArticlesBloc>(
       () => LocalArticlesBloc(sl(), sl(), sl()));

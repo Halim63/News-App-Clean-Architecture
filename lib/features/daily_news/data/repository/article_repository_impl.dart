@@ -31,7 +31,7 @@ class ArticleRepositoryImpl extends ArticleRepository {
         return DataFailed(DioException(
             error: httpResponse.response.statusMessage,
             response: httpResponse.response,
-            type: DioErrorType.badResponse,
+            type: DioExceptionType.badResponse,
             requestOptions: httpResponse.response.requestOptions));
       }
     } on DioException catch (e) {

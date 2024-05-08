@@ -20,7 +20,7 @@ class LocalArticlesBloc extends Bloc<LocalArticlesEvent, LocalArticlesState> {
   }
 
 
-  Future<void> onGetSavedArticles(GetSavedArticlesEvent event,Emitter<LocalArticlesState> emit) async {
+  void onGetSavedArticles(GetSavedArticlesEvent event,Emitter<LocalArticlesState> emit) async {
     final articles = await _getSavedArticleUseCase();
     emit(LocalArticlesDoneState(articles));
   }

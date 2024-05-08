@@ -63,8 +63,11 @@ class _$AppDatabase extends AppDatabase {
 
   ArticleDao? _articleDAOInstance;
 
-  Future<sqflite.Database> open(String path, List<Migration> migrations,
-      [Callback? callback]) async {
+  Future<sqflite.Database> open(
+    String path,
+    List<Migration> migrations, [
+    Callback? callback,
+  ]) async {
     final databaseOptions = sqflite.OpenDatabaseOptions(
       version: 1,
       onConfigure: (database) async {
@@ -97,35 +100,37 @@ class _$AppDatabase extends AppDatabase {
 }
 
 class _$ArticleDao extends ArticleDao {
-  _$ArticleDao(this.database, this.changeListener)
-      : _queryAdapter = QueryAdapter(database),
+  _$ArticleDao(
+    this.database,
+    this.changeListener,
+  )   : _queryAdapter = QueryAdapter(database),
         _articleModelInsertionAdapter = InsertionAdapter(
             database,
             'article',
-                (ArticleModel item) => <String, Object?>{
-              'id': item.id,
-              'author': item.author,
-              'title': item.title,
-              'description': item.description,
-              'url': item.url,
-              'urlToImage': item.urlToImage,
-              'publishedAt': item.publishedAt,
-              'content': item.content
-            }),
+            (ArticleModel item) => <String, Object?>{
+                  'id': item.id,
+                  'author': item.author,
+                  'title': item.title,
+                  'description': item.description,
+                  'url': item.url,
+                  'urlToImage': item.urlToImage,
+                  'publishedAt': item.publishedAt,
+                  'content': item.content
+                }),
         _articleModelDeletionAdapter = DeletionAdapter(
             database,
             'article',
             ['id'],
-                (ArticleModel item) => <String, Object?>{
-              'id': item.id,
-              'author': item.author,
-              'title': item.title,
-              'description': item.description,
-              'url': item.url,
-              'urlToImage': item.urlToImage,
-              'publishedAt': item.publishedAt,
-              'content': item.content
-            });
+            (ArticleModel item) => <String, Object?>{
+                  'id': item.id,
+                  'author': item.author,
+                  'title': item.title,
+                  'description': item.description,
+                  'url': item.url,
+                  'urlToImage': item.urlToImage,
+                  'publishedAt': item.publishedAt,
+                  'content': item.content
+                });
 
   final sqflite.DatabaseExecutor database;
 
@@ -158,7 +163,7 @@ class _$ArticleDao extends ArticleDao {
   }
 
   @override
-  Future<void> deleteArticle(ArticleModel articleModel) async {
-    await _articleModelDeletionAdapter.delete(articleModel);
+  Future<void> deleteArticle(ArticleModel article) async {
+    await _articleModelDeletionAdapter.delete(article);
   }
 }

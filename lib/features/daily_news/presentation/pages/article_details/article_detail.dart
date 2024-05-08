@@ -13,7 +13,6 @@ class ArticleDetailsView extends HookWidget {
 
   const ArticleDetailsView({super.key, this.article});
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -58,7 +57,7 @@ class ArticleDetailsView extends HookWidget {
         children: [
           // Title
           Text(
-            article?.title??'' ,
+            article?.title ?? '',
             style: const TextStyle(
                 fontFamily: 'Butler',
                 fontSize: 20,
@@ -91,9 +90,10 @@ class ArticleDetailsView extends HookWidget {
         vertical: 14,
       ),
       child: Image.network(
-          // article?.urlToImage ?? ''
-          "https://as1.ftcdn.net/v2/jpg/04/60/01/36/1000_F_460013622_6xF8uN6ubMvLx0tAJECBHfKPoNOR5cRa.jpg",
-          fit: BoxFit.cover),
+          article?.urlToImage ?? '',
+          // "https://as1.ftcdn.net/v2/jpg/04/60/01/36/1000_F_460013622_6xF8uN6ubMvLx0tAJECBHfKPoNOR5cRa.jpg",
+          fit: BoxFit.cover
+      ),
     );
   }
 

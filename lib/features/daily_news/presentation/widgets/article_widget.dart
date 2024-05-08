@@ -98,10 +98,9 @@ class ArticleWidget extends StatelessWidget {
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                fontFamily: 'Muli',
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
-                color: Colors.black87,
+                color: Colors.black,
               ),
             ),
 
@@ -112,6 +111,9 @@ class ArticleWidget extends StatelessWidget {
                 child: Text(
                   article!.description ?? '',
                   maxLines: 2,
+                  style: const TextStyle(
+                    color: Colors.black54,
+                  ),
                 ),
               ),
             ),
@@ -119,12 +121,14 @@ class ArticleWidget extends StatelessWidget {
             // Datetime
             Row(
               children: [
-                const Icon(Icons.timeline_outlined, size: 16),
+                const Icon(Icons.timeline_outlined, size: 16,color: Colors.red,),
                 const SizedBox(width: 4),
                 Text(
                   article?.publishedAt ?? '',
                   style: const TextStyle(
                     fontSize: 12,
+                    color: Colors.red,
+
                   ),
                 ),
               ],
